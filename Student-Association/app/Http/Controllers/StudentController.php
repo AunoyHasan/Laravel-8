@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Student;
 use App\Models\Department;
+use App\Models\Phone;
 
 class StudentController extends Controller
 {
@@ -17,9 +18,9 @@ class StudentController extends Controller
     public function index()
     {
         //
-        //$students = Student::all();
-        $studets = Student::where('department_id', 1)->get();
-        return $students;
+        $students = Student::all();
+        //$studets = Student::where('department_id', 1)->get();
+        //return $students;
         return view('student.index', ['students' => $students]);
     }
 
@@ -87,5 +88,25 @@ class StudentController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function addData(){
+        $phone =  new Phone();
+        $phone->phone = "0194641";
+        
+        $student = new Student();
+        $student->name="John";
+        $student->course_id="1";
+        $student->department_id="1";
+        $student->image="jjjjahdjd";
+        $student->save();
+        $student->phone()->save($phone);
+
+        return "Data inserted successfully";
+    }
+
+    public function fetchStudentData($id){
+        $phone = Student::find($id)->phone;
+        return $phone;
     }
 }

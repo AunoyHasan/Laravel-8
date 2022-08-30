@@ -28,4 +28,8 @@ class Student extends Model
     public function course(){
         return $this->hasMany(Course::class);
     }
+
+    public function phone(){
+        return $this->hasOne('App\Models\Phone');
+    }
 }
