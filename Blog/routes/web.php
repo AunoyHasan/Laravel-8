@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\FrontController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,5 @@ Route::get('/', function () {
 });
 
 Route::get('/admin/dashboard',[AdminController::class,'dashboard'])->name('admon.dashboard');
+
+Route::get('/front-end',[FrontController::class,'front'])->name('front');
