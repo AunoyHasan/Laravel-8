@@ -49,6 +49,7 @@ class StudentController extends Controller
         return view('list')->with('students',$students);
     }
 
+
     public function listSubmit(Request $request){
         //dd($req->all());
         for($i=0; $i<count($request->attendance); $i++){

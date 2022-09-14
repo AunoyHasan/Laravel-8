@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\AuthorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +24,9 @@ Route::get('/', function () {
 Route::get('/admin/dashboard',[AdminController::class,'dashboard'])->name('admon.dashboard');
 
 Route::get('/front-end',[FrontController::class,'front'])->name('front');
+Route::get('/create/blog',[FrontController::class,'createBlog']);
+Route::post('/create/blog',[FrontController::class,'createBlogSubmit'])->name('create.blog');
+Route::get('/front/home',[FrontController::class,'home'])->name('front.home');
+
+Route::get('/login',[AuthorController::class,'login']);
+Route::post('/login',[AuthorController::class,'loginsubmit'])->name('login.submit');
